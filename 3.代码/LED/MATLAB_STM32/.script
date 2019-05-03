@@ -1,0 +1,3 @@
+config load "C:\Users\zqx\Desktop\MATLAB_STM32\MATLAB_STM32.ioc"
+project generate ui
+exit wait

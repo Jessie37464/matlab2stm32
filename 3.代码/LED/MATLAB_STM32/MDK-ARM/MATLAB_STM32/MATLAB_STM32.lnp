@@ -1,0 +1,23 @@
+--cpu Cortex-M3
+"matlab_stm32\startup_stm32f103xb.o"
+"matlab_stm32\led.o"
+"matlab_stm32\main.o"
+"matlab_stm32\stm32f1xx_it.o"
+"matlab_stm32\stm32f1xx_hal_msp.o"
+"matlab_stm32\stm32f1xx_hal_gpio_ex.o"
+"matlab_stm32\stm32f1xx_hal_tim.o"
+"matlab_stm32\stm32f1xx_hal_tim_ex.o"
+"matlab_stm32\stm32f1xx_hal.o"
+"matlab_stm32\stm32f1xx_hal_rcc.o"
+"matlab_stm32\stm32f1xx_hal_rcc_ex.o"
+"matlab_stm32\stm32f1xx_hal_gpio.o"
+"matlab_stm32\stm32f1xx_hal_dma.o"
+"matlab_stm32\stm32f1xx_hal_cortex.o"
+"matlab_stm32\stm32f1xx_hal_pwr.o"
+"matlab_stm32\stm32f1xx_hal_flash.o"
+"matlab_stm32\stm32f1xx_hal_flash_ex.o"
+"matlab_stm32\system_stm32f1xx.o"
+--library_type=microlib --strict --scatter "MATLAB_STM32\MATLAB_STM32.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "MATLAB_STM32.map" -o MATLAB_STM32\MATLAB_STM32.axf

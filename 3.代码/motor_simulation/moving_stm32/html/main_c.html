@@ -1,0 +1,168 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>RTW Report - main.c</title>
+<link rel="stylesheet" type="text/css" href="rtwreport.css"></link><script language="JavaScript" type="text/javascript" src="rtwreport_utils.js"></script>
+<SCRIPT type="text/javascript" language="JavaScript" src="slwebview.js"></SCRIPT>
+<SCRIPT type="text/javascript" language="JavaScript" src="id_mapping.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="rtwannotate.js"></SCRIPT>
+</head>
+<body bgcolor="#eeeeee" onload="try {if (top) { if (top.rtwFileOnLoad) top.rtwFileOnLoad(window.document); else local_onload();}} catch(err) {};if (typeof rtwannotate === 'function') {rtwannotate('main_c_cov.xml');}">
+<p>
+<table border="0" cellspacing="0" cellpadding="6" width="100%%" height="100%%"><tr><td width="100%%" valign="top" bgcolor="#ffffff">
+<h4>File: <a href="../main.c" target="rtwreport_document_frame" id="linkToText_plain">main.c</a></h4>
+<pre id="RTWcode">
+<span><a class="LN" name="1">    1   </a><span class="CT">/*</span>
+</span><span><a class="LN" name="2">    2   </a><span class="CT"> * Academic License - for use in teaching, academic research, and meeting</span>
+</span><span><a class="LN" name="3">    3   </a><span class="CT"> * course requirements at degree granting institutions only.  Not for</span>
+</span><span><a class="LN" name="4">    4   </a><span class="CT"> * government, commercial, or other organizational use.</span>
+</span><span><a class="LN" name="5">    5   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="6">    6   </a><span class="CT"> * File: main.c</span>
+</span><span><a class="LN" name="7">    7   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="8">    8   </a><span class="CT"> * Code generated for Simulink model :moving.</span>
+</span><span><a class="LN" name="9">    9   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="10">   10   </a><span class="CT"> * Model version      : 1.1</span>
+</span><span><a class="LN" name="11">   11   </a><span class="CT"> * Simulink Coder version    : 8.14 (R2018a) 06-Feb-2018</span>
+</span><span><a class="LN" name="12">   12   </a><span class="CT"> * TLC version       : 8.14 (Feb 22 2018)</span>
+</span><span><a class="LN" name="13">   13   </a><span class="CT"> * C/C++ source code generated on  : Fri Nov  9 19:12:53 2018</span>
+</span><span><a class="LN" name="14">   14   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="15">   15   </a><span class="CT"> * Target selection: stm32.tlc</span>
+</span><span><a class="LN" name="16">   16   </a><span class="CT"> * Embedded hardware selection: STMicroelectronics-&gt;STM32 32-bit Cortex-M</span>
+</span><span><a class="LN" name="17">   17   </a><span class="CT"> * Code generation objectives: Unspecified</span>
+</span><span><a class="LN" name="18">   18   </a><span class="CT"> * Validation result: Not run</span>
+</span><span><a class="LN" name="19">   19   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="20">   20   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="21">   21   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="22">   22   </a><span class="CT"> * ******************************************************************************</span>
+</span><span><a class="LN" name="23">   23   </a><span class="CT"> * * attention</span>
+</span><span><a class="LN" name="24">   24   </a><span class="CT"> * *</span>
+</span><span><a class="LN" name="25">   25   </a><span class="CT"> * * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS</span>
+</span><span><a class="LN" name="26">   26   </a><span class="CT"> * * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE</span>
+</span><span><a class="LN" name="27">   27   </a><span class="CT"> * * TIME. AS A RESULT, STMICROELECTRONICS SHALL NOT BE HELD LIABLE FOR ANY</span>
+</span><span><a class="LN" name="28">   28   </a><span class="CT"> * * DIRECT, INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING</span>
+</span><span><a class="LN" name="29">   29   </a><span class="CT"> * * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE</span>
+</span><span><a class="LN" name="30">   30   </a><span class="CT"> * * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.</span>
+</span><span><a class="LN" name="31">   31   </a><span class="CT"> * *</span>
+</span><span><a class="LN" name="32">   32   </a><span class="CT"> * ******************************************************************************</span>
+</span><span><a class="LN" name="33">   33   </a><span class="CT"> */</span>
+</span><span><a class="LN" name="34">   34   </a>
+</span><span><a class="LN" name="35">   35   </a><span class="CT">/* USER CODE BEGIN 0 */</span>
+</span><span><a class="LN" name="36">   36   </a><font color="#992211">#</font><span class="PP">include</span> <font color="#992211">&lt;stdio.h&gt;</font>
+</span><span><a class="LN" name="37">   37   </a><font color="#992211">#</font><span class="PP">include</span> <font color="#992211">&quot;moving.h&quot;</font>                    <span class="CT">/* Model's header file */</span>
+</span><span><a class="LN" name="38">   38   </a><font color="#992211">#</font><span class="PP">include</span> <font color="#992211">&quot;rtwtypes.h&quot;</font>                  <span class="CT">/* MathWorks types */</span>
+</span><span><a class="LN" name="39">   39   </a>
+</span><span><a class="LN" name="40">   40   </a><span class="CT">/* Real-time model */</span>
+</span><span><a class="LN" name="41">   41   </a><span class="DT">extern</span> <a href="moving_types_h.html#type_RT_MODEL_moving" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_RT_MODEL_moving');" target="_self"><font color="#1122aa">RT_MODEL_moving</font></a> *<span class="DT">const</span> <a href="moving_c.html#var_moving_M" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_moving_M');" target="_self"><font color="#1122aa">moving_M</font></a>;
+</span><span><a class="LN" name="42">   42   </a>
+</span><span><a class="LN" name="43">   43   </a><span class="CT">/* Set which subrates need to run this base step (base rate always runs).*/</span>
+</span><span><a class="LN" name="44">   44   </a><span class="CT">/* Defined in moving.c file */</span>
+</span><span><a class="LN" name="45">   45   </a><span class="DT">extern</span> <span class="DT">void</span> moving_SetEventsForThisBaseStep(<a href="rtwtypes_h.html#type_boolean_T" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_boolean_T');" target="_self"><font color="#1122aa">boolean_T</font></a>*);
+</span><span><a class="LN" name="46">   46   </a>
+</span><span><a class="LN" name="47">   47   </a><span class="CT">/* Flags for taskOverrun */</span>
+</span><span><a class="LN" name="48">   48   </a><span class="DT">static</span> <a href="rtwtypes_h.html#type_boolean_T" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_boolean_T');" target="_self"><font color="#1122aa">boolean_T</font></a> <a name="var_OverrunFlags">OverrunFlags</a>[1];
+</span><span><a class="LN" name="49">   49   </a>
+</span><span><a class="LN" name="50">   50   </a><span class="CT">/* Number of auto reload timer rotation computed */</span>
+</span><span><a class="LN" name="51">   51   </a><span class="DT">static</span> <span class="DT">volatile</span> uint32_t <a name="var_autoReloadTimerLoopVal_S">autoReloadTimerLoopVal_S</a> = 1;
+</span><span><a class="LN" name="52">   52   </a>
+</span><span><a class="LN" name="53">   53   </a><span class="CT">/* Remaining number of auto reload timer rotation to do */</span>
+</span><span><a class="LN" name="54">   54   </a><span class="DT">static</span> <span class="DT">volatile</span> uint32_t <a name="var_remainAutoReloadTimerLoopVal_S">remainAutoReloadTimerLoopVal_S</a> = 1;
+</span><span><a class="LN" name="55">   55   </a>
+</span><span><a class="LN" name="56">   56   </a><span class="CT">/* USER CODE END 0 */</span>
+</span><span><a class="LN" name="57">   57   </a>
+</span><span><a class="LN" name="58">   58   </a><span class="CT">/****************************************************</span>
+</span><span><a class="LN" name="59">   59   </a><span class="CT">   main function</span>
+</span><span><a class="LN" name="60">   60   </a><span class="CT">   Example of main :</span>
+</span><span><a class="LN" name="61">   61   </a><span class="CT">   - Clock configuration</span>
+</span><span><a class="LN" name="62">   62   </a><span class="CT">   - call Initialize</span>
+</span><span><a class="LN" name="63">   63   </a><span class="CT">   - Wait for systick (infinite loop)</span>
+</span><span><a class="LN" name="64">   64   </a><span class="CT"> *****************************************************/</span>
+</span><span><a class="LN" name="65">   65   </a><span class="DT">int</span> <a name="fcn_main">main</a> (<span class="DT">void</span>)
+</span><span><a class="LN" name="66">   66   </a><b>{</b>
+</span><span><a class="LN" name="67">   67   </a>  <span class="CT">/* USER CODE BEGIN 1 */</span>
+</span><span><a class="LN" name="68">   68   </a>  <span class="CT">/* Data initialization */</span>
+</span><span><a class="LN" name="69">   69   </a>  <a href="rtwtypes_h.html#type_int_T" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_int_T');" target="_self"><font color="#1122aa">int_T</font></a> i;
+</span><span><a class="LN" name="70">   70   </a>
+</span><span><a class="LN" name="71">   71   </a>  <span class="CT">/* USER CODE END 1 */</span>
+</span><span><a class="LN" name="72">   72   </a>
+</span><span><a class="LN" name="73">   73   </a>  <span class="CT">/* USER CODE BEGIN 2 */</span>
+</span><span><a class="LN" name="74">   74   </a>  <span class="CT">/* Systick configuration and enable SysTickHandler interrupt */</span>
+</span><span><a class="LN" name="75">   75   </a>  <span class="KW">if</span> (SysTick_Config((uint32_t)(SystemCoreClock * 0.0001))) <b>{</b>
+</span><span><a class="LN" name="76">   76   </a>    <a href="#var_autoReloadTimerLoopVal_S" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_autoReloadTimerLoopVal_S');" target="_self"><font color="#1122aa">autoReloadTimerLoopVal_S</font></a> = 1;
+</span><span><a class="LN" name="77">   77   </a>    <span class="KW">do</span> <b>{</b>
+</span><span><a class="LN" name="78">   78   </a>      <a href="#var_autoReloadTimerLoopVal_S" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_autoReloadTimerLoopVal_S');" target="_self"><font color="#1122aa">autoReloadTimerLoopVal_S</font></a>++;
+</span><span><a class="LN" name="79">   79   </a>    <b>}</b> <span class="KW">while</span> ((uint32_t)(SystemCoreClock * 0.0001)/<a href="#var_autoReloadTimerLoopVal_S" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_autoReloadTimerLoopVal_S');" target="_self"><font color="#1122aa">autoReloadTimerLoopVal_S</font></a> &gt;
+</span><span><a class="LN" name="80">   80   </a>             SysTick_LOAD_RELOAD_Msk);
+</span><span><a class="LN" name="81">   81   </a>
+</span><span><a class="LN" name="82">   82   </a>    SysTick_Config((uint32_t)(SystemCoreClock * 0.0001)/<a href="#var_autoReloadTimerLoopVal_S" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_autoReloadTimerLoopVal_S');" target="_self"><font color="#1122aa">autoReloadTimerLoopVal_S</font></a>);
+</span><span><a class="LN" name="83">   83   </a>  <b>}</b>
+</span><span><a class="LN" name="84">   84   </a>
+</span><span><a class="LN" name="85">   85   </a>  <a href="#var_remainAutoReloadTimerLoopVal_S" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_remainAutoReloadTimerLoopVal_S');" target="_self"><font color="#1122aa">remainAutoReloadTimerLoopVal_S</font></a> = <a href="#var_autoReloadTimerLoopVal_S" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_autoReloadTimerLoopVal_S');" target="_self"><font color="#1122aa">autoReloadTimerLoopVal_S</font></a>;<span class="CT">//Set nb of loop to do</span>
+</span><span><a class="LN" name="86">   86   </a>
+</span><span><a class="LN" name="87">   87   </a>  <span class="CT">/* USER CODE END 2 */</span>
+</span><span><a class="LN" name="88">   88   </a>
+</span><span><a class="LN" name="89">   89   </a>  <span class="CT">/* USER CODE BEGIN WHILE */</span>
+</span><span><a class="LN" name="90">   90   </a>  <span class="KW">for</span> (i=0;i&lt;1;i++) <b>{</b>
+</span><span><a class="LN" name="91">   91   </a>    <a href="#var_OverrunFlags" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_OverrunFlags');" target="_self"><font color="#1122aa">OverrunFlags</font></a>[i] = 0;
+</span><span><a class="LN" name="92">   92   </a>  <b>}</b>
+</span><span><a class="LN" name="93">   93   </a>
+</span><span><a class="LN" name="94">   94   </a>  <span class="CT">/* Model initialization call */</span>
+</span><span><a class="LN" name="95">   95   </a>  <a href="moving_c.html#fcn_moving_initialize" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_moving_initialize');" target="_self"><font color="#1122aa">moving_initialize</font></a>();
+</span><span><a class="LN" name="96">   96   </a>
+</span><span><a class="LN" name="97">   97   </a>  <span class="CT">/* Infinite loop */</span>
+</span><span><a class="LN" name="98">   98   </a>  <span class="CT">/* Real time from systickHandler */</span>
+</span><span><a class="LN" name="99">   99   </a>  <span class="KW">while</span> (1) <b>{</b>
+</span><span><a class="LN" name="100">  100   </a>    <span class="CT">/*Process tasks every solver time*/</span>
+</span><span><a class="LN" name="101">  101   </a>    <span class="KW">if</span> (<a href="#var_remainAutoReloadTimerLoopVal_S" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_remainAutoReloadTimerLoopVal_S');" target="_self"><font color="#1122aa">remainAutoReloadTimerLoopVal_S</font></a> == 0) <b>{</b>
+</span><span><a class="LN" name="102">  102   </a>      <a href="#var_remainAutoReloadTimerLoopVal_S" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_remainAutoReloadTimerLoopVal_S');" target="_self"><font color="#1122aa">remainAutoReloadTimerLoopVal_S</font></a> = <a href="#var_autoReloadTimerLoopVal_S" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_autoReloadTimerLoopVal_S');" target="_self"><font color="#1122aa">autoReloadTimerLoopVal_S</font></a>;
+</span><span><a class="LN" name="103">  103   </a>
+</span><span><a class="LN" name="104">  104   </a>      <span class="CT">/* Check base rate for overrun */</span>
+</span><span><a class="LN" name="105">  105   </a>      <span class="KW">if</span> (<a href="#var_OverrunFlags" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_OverrunFlags');" target="_self"><font color="#1122aa">OverrunFlags</font></a>[0]) <b>{</b>
+</span><span><a class="LN" name="106">  106   </a>        rtmSetErrorStatus(<a href="moving_c.html#var_moving_M" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_moving_M');" target="_self"><font color="#1122aa">moving_M</font></a>, <font color="#1122ff">&quot;Overrun&quot;</font>);
+</span><span><a class="LN" name="107">  107   </a>      <b>}</b>
+</span><span><a class="LN" name="108">  108   </a>
+</span><span><a class="LN" name="109">  109   </a>      <a href="#var_OverrunFlags" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_OverrunFlags');" target="_self"><font color="#1122aa">OverrunFlags</font></a>[0] = true;
+</span><span><a class="LN" name="110">  110   </a>
+</span><span><a class="LN" name="111">  111   </a>      <span class="CT">/* Step the model for base rate */</span>
+</span><span><a class="LN" name="112">  112   </a>      <a href="moving_c.html#fcn_moving_step" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_moving_step');" target="_self"><font color="#1122aa">moving_step</font></a>();
+</span><span><a class="LN" name="113">  113   </a>
+</span><span><a class="LN" name="114">  114   </a>      <span class="CT">/* Get model outputs here */</span>
+</span><span><a class="LN" name="115">  115   </a>
+</span><span><a class="LN" name="116">  116   </a>      <span class="CT">/* Indicate task for base rate complete */</span>
+</span><span><a class="LN" name="117">  117   </a>      <a href="#var_OverrunFlags" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_OverrunFlags');" target="_self"><font color="#1122aa">OverrunFlags</font></a>[0] = false;
+</span><span><a class="LN" name="118">  118   </a>    <b>}</b>
+</span><span><a class="LN" name="119">  119   </a>  <b>}</b>
+</span><span><a class="LN" name="120">  120   </a>
+</span><span><a class="LN" name="121">  121   </a>  <span class="CT">/* USER CODE END WHILE */</span>
+</span><span><a class="LN" name="122">  122   </a>
+</span><span><a class="LN" name="123">  123   </a>  <span class="CT">/* USER CODE BEGIN 3 */</span>
+</span><span><a class="LN" name="124">  124   </a>  <span class="CT">/* USER CODE END 3 */</span>
+</span><span><a class="LN" name="125">  125   </a><b>}</b>
+</span><span><a class="LN" name="126">  126   </a>
+</span><span><a class="LN" name="127">  127   </a><span class="CT">/* USER CODE BEGIN 4 */</span>
+</span><span><a class="LN" name="128">  128   </a><span class="CT">/****************************************************</span>
+</span><span><a class="LN" name="129">  129   </a><span class="CT">   SysTick_Handler callback function</span>
+</span><span><a class="LN" name="130">  130   </a><span class="CT">   This handler is called every tick and schedules tasks</span>
+</span><span><a class="LN" name="131">  131   </a><span class="CT"> *****************************************************/</span>
+</span><span><a class="LN" name="132">  132   </a><span class="DT">void</span> <a name="fcn_HAL_SYSTICK_Callback">HAL_SYSTICK_Callback</a>(<span class="DT">void</span>)
+</span><span><a class="LN" name="133">  133   </a><b>{</b>
+</span><span><a class="LN" name="134">  134   </a>  <span class="CT">/* For TIME OUT processing */</span>
+</span><span><a class="LN" name="135">  135   </a>  HAL_IncTick();
+</span><span><a class="LN" name="136">  136   </a>
+</span><span><a class="LN" name="137">  137   </a>  <span class="CT">/* Manage nb of loop before interrupt has to be processed */</span>
+</span><span><a class="LN" name="138">  138   </a>  <span class="KW">if</span> (<a href="#var_remainAutoReloadTimerLoopVal_S" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_remainAutoReloadTimerLoopVal_S');" target="_self"><font color="#1122aa">remainAutoReloadTimerLoopVal_S</font></a>) <b>{</b>
+</span><span><a class="LN" name="139">  139   </a>    <a href="#var_remainAutoReloadTimerLoopVal_S" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_remainAutoReloadTimerLoopVal_S');" target="_self"><font color="#1122aa">remainAutoReloadTimerLoopVal_S</font></a>--;
+</span><span><a class="LN" name="140">  140   </a>  <b>}</b>
+</span><span><a class="LN" name="141">  141   </a><b>}</b>
+</span><span><a class="LN" name="142">  142   </a>
+</span><span><a class="LN" name="143">  143   </a><span class="CT">/* USER CODE END 4 */</span>
+</span><span><a class="LN" name="144">  144   </a>
+</span><span><a class="LN" name="145">  145   </a><span class="CT">/* File trailer for Real-Time Workshop generated code.</span>
+</span><span><a class="LN" name="146">  146   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="147">  147   </a><span class="CT"> * [EOF] main.c</span>
+</span><span><a class="LN" name="148">  148   </a><span class="CT"> */</span>
+</span><span><a class="LN" name="149">  149   </a>
+</span></pre>
+</td></tr></table>
+</p>
+</body>
+</html>

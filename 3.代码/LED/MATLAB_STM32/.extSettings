@@ -1,0 +1,6 @@
+[ProjectFiles]
+HeaderPath=C:\Users\zqx\Desktop\MATLAB_STM32\LED\Inc;
+[Groups]
+MATLAB=C:\Users\zqx\Desktop\MATLAB_STM32\LED\Src/LED.c;
+[Others]
+Define=MEM_UNIT_BYTES;ARM_MATH_CM3;MemUnit_T:uint8_T;

@@ -1,0 +1,31 @@
+[
+ {
+  "hid":1,
+  "sid":"motor",
+  "esid":"",
+  "parent":0,
+  "children":[
+  ],
+  "name":"motor",
+  "fullname":"motor",
+  "label":"motor",
+  "icon":"WebViewIcon0",
+  "svg":"support/slwebview_files/motor_d.svg",
+  "thumbnail":"support/slwebview_files/motor_d.png",
+  "backingUrl":"support/slwebview_files/motor_d.json",
+  "elements":[
+   ":7",
+   ":9",
+   ":10",
+   ":14",
+   ":15",
+   ":16",
+   ":17",
+   ":23",
+   ":14#out:1",
+   ":15#out:1",
+   ":16#out:1"
+  ],
+  "sameAsElement":false
+ }
+]

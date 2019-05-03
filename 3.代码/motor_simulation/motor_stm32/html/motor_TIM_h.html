@@ -1,0 +1,150 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>RTW Report - motor_TIM.h</title>
+<link rel="stylesheet" type="text/css" href="rtwreport.css"></link><script language="JavaScript" type="text/javascript" src="rtwreport_utils.js"></script>
+<SCRIPT type="text/javascript" language="JavaScript" src="slwebview.js"></SCRIPT>
+<SCRIPT type="text/javascript" language="JavaScript" src="id_mapping.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="rtwannotate.js"></SCRIPT>
+</head>
+<body bgcolor="#eeeeee" onload="try {if (top) { if (top.rtwFileOnLoad) top.rtwFileOnLoad(window.document); else local_onload();}} catch(err) {};if (typeof rtwannotate === 'function') {rtwannotate('motor_TIM_h_cov.xml');}">
+<p>
+<table border="0" cellspacing="0" cellpadding="6" width="100%%" height="100%%"><tr><td width="100%%" valign="top" bgcolor="#ffffff">
+<h4>File: <a href="../motor_TIM.h" target="rtwreport_document_frame" id="linkToText_plain">motor_TIM.h</a></h4>
+<pre id="RTWcode">
+<span><a class="LN" name="1">    1   </a><span class="CT">/*</span>
+</span><span><a class="LN" name="2">    2   </a><span class="CT"> * Academic License - for use in teaching, academic research, and meeting</span>
+</span><span><a class="LN" name="3">    3   </a><span class="CT"> * course requirements at degree granting institutions only.  Not for</span>
+</span><span><a class="LN" name="4">    4   </a><span class="CT"> * government, commercial, or other organizational use.</span>
+</span><span><a class="LN" name="5">    5   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="6">    6   </a><span class="CT"> * File: motor_TIM.h</span>
+</span><span><a class="LN" name="7">    7   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="8">    8   </a><span class="CT"> * Code generated for Simulink model :motor.</span>
+</span><span><a class="LN" name="9">    9   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="10">   10   </a><span class="CT"> * Model version      : 1.5</span>
+</span><span><a class="LN" name="11">   11   </a><span class="CT"> * Simulink Coder version    : 8.14 (R2018a) 06-Feb-2018</span>
+</span><span><a class="LN" name="12">   12   </a><span class="CT"> * TLC version       : 8.14 (Feb 22 2018)</span>
+</span><span><a class="LN" name="13">   13   </a><span class="CT"> * C/C++ source code generated on  : Fri Nov  9 18:46:33 2018</span>
+</span><span><a class="LN" name="14">   14   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="15">   15   </a><span class="CT"> * Target selection: stm32.tlc</span>
+</span><span><a class="LN" name="16">   16   </a><span class="CT"> * Embedded hardware selection: STMicroelectronics-&gt;STM32 32-bit Cortex-M</span>
+</span><span><a class="LN" name="17">   17   </a><span class="CT"> * Code generation objectives: Unspecified</span>
+</span><span><a class="LN" name="18">   18   </a><span class="CT"> * Validation result: Not run</span>
+</span><span><a class="LN" name="19">   19   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="20">   20   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="21">   21   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="22">   22   </a><span class="CT"> * ******************************************************************************</span>
+</span><span><a class="LN" name="23">   23   </a><span class="CT"> * * attention</span>
+</span><span><a class="LN" name="24">   24   </a><span class="CT"> * *</span>
+</span><span><a class="LN" name="25">   25   </a><span class="CT"> * * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS</span>
+</span><span><a class="LN" name="26">   26   </a><span class="CT"> * * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE</span>
+</span><span><a class="LN" name="27">   27   </a><span class="CT"> * * TIME. AS A RESULT, STMICROELECTRONICS SHALL NOT BE HELD LIABLE FOR ANY</span>
+</span><span><a class="LN" name="28">   28   </a><span class="CT"> * * DIRECT, INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING</span>
+</span><span><a class="LN" name="29">   29   </a><span class="CT"> * * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE</span>
+</span><span><a class="LN" name="30">   30   </a><span class="CT"> * * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.</span>
+</span><span><a class="LN" name="31">   31   </a><span class="CT"> * *</span>
+</span><span><a class="LN" name="32">   32   </a><span class="CT"> * ******************************************************************************</span>
+</span><span><a class="LN" name="33">   33   </a><span class="CT"> */</span>
+</span><span><a class="LN" name="34">   34   </a>
+</span><span><a class="LN" name="35">   35   </a><font color="#992211">#</font><span class="PP">ifndef</span> RTW_HEADER_motor_TIM_h_
+</span><span><a class="LN" name="36">   36   </a><font color="#992211">#</font><span class="PP">define</span> RTW_HEADER_motor_TIM_h_
+</span><span><a class="LN" name="37">   37   </a>
+</span><span><a class="LN" name="38">   38   </a><span class="CT">//RP MODIF #include "motor_STM32.h"</span>
+</span><span><a class="LN" name="39">   39   </a><font color="#992211">#</font><span class="PP">include</span> <font color="#992211">&quot;STM32_Config.h&quot;</font>
+</span><span><a class="LN" name="40">   40   </a>
+</span><span><a class="LN" name="41">   41   </a><span class="CT">/**</span>
+</span><span><a class="LN" name="42">   42   </a><span class="CT"> * @brief  TIM data information</span>
+</span><span><a class="LN" name="43">   43   </a><span class="CT"> */</span>
+</span><span><a class="LN" name="44">   44   </a><span class="KW">typedef</span> <span class="KW">struct</span> <b>{</b>
+</span><span><a class="LN" name="45">   45   </a>  uint32_t TIM_Prescaler;
+</span><span><a class="LN" name="46">   46   </a>  uint32_t TIM_APBClock;
+</span><span><a class="LN" name="47">   47   </a>  uint32_t TIM_ARR;
+</span><span><a class="LN" name="48">   48   </a>  uint32_t TIM_Clock;
+</span><span><a class="LN" name="49">   49   </a>  uint32_t TIM_Freq;
+</span><span><a class="LN" name="50">   50   </a>  uint8_t CH1_type;
+</span><span><a class="LN" name="51">   51   </a>  uint8_t CH2_type;
+</span><span><a class="LN" name="52">   52   </a>  uint8_t CH3_type;
+</span><span><a class="LN" name="53">   53   </a>  uint8_t CH4_type;
+</span><span><a class="LN" name="54">   54   </a>  int32_t CH1_duty;
+</span><span><a class="LN" name="55">   55   </a>  int32_t CH2_duty;
+</span><span><a class="LN" name="56">   56   </a>  int32_t CH3_duty;
+</span><span><a class="LN" name="57">   57   </a>  int32_t CH4_duty;
+</span><span><a class="LN" name="58">   58   </a>
+</span><span><a class="LN" name="59">   59   </a>  <span class="CT">/* Input Capture data */</span>
+</span><span><a class="LN" name="60">   60   </a>  uint32_t* ICCData;
+</span><span><a class="LN" name="61">   61   </a>  uint32_t ICC1Capture;
+</span><span><a class="LN" name="62">   62   </a>  uint32_t ICC1Freq;
+</span><span><a class="LN" name="63">   63   </a>  uint32_t ICC1Duty;
+</span><span><a class="LN" name="64">   64   </a>  uint32_t ICC2Capture;
+</span><span><a class="LN" name="65">   65   </a>  uint32_t ICC2Freq;
+</span><span><a class="LN" name="66">   66   </a>  uint32_t ICC2Duty;
+</span><span><a class="LN" name="67">   67   </a>  uint32_t ICC3Capture;
+</span><span><a class="LN" name="68">   68   </a>  uint32_t ICC3Freq;
+</span><span><a class="LN" name="69">   69   </a>  uint32_t ICC3Duty;
+</span><span><a class="LN" name="70">   70   </a>  uint32_t ICC4Capture;
+</span><span><a class="LN" name="71">   71   </a>  uint32_t ICC4Freq;
+</span><span><a class="LN" name="72">   72   </a>  uint32_t ICC4Duty;
+</span><span><a class="LN" name="73">   73   </a>  uint16_t ICC1ReadValue1;
+</span><span><a class="LN" name="74">   74   </a>  uint16_t ICC1ReadValue2;
+</span><span><a class="LN" name="75">   75   </a>  uint16_t ICC1ReadValue3;
+</span><span><a class="LN" name="76">   76   </a>  uint16_t ICC1ReadValue4;
+</span><span><a class="LN" name="77">   77   </a>  uint16_t ICC2ReadValue1;
+</span><span><a class="LN" name="78">   78   </a>  uint16_t ICC2ReadValue2;
+</span><span><a class="LN" name="79">   79   </a>  uint16_t ICC2ReadValue3;
+</span><span><a class="LN" name="80">   80   </a>  uint16_t ICC2ReadValue4;
+</span><span><a class="LN" name="81">   81   </a>  uint16_t ICC3ReadValue1;
+</span><span><a class="LN" name="82">   82   </a>  uint16_t ICC3ReadValue2;
+</span><span><a class="LN" name="83">   83   </a>  uint16_t ICC3ReadValue3;
+</span><span><a class="LN" name="84">   84   </a>  uint16_t ICC3ReadValue4;
+</span><span><a class="LN" name="85">   85   </a>  uint16_t ICC4ReadValue1;
+</span><span><a class="LN" name="86">   86   </a>  uint16_t ICC4ReadValue2;
+</span><span><a class="LN" name="87">   87   </a>  uint16_t ICC4ReadValue3;
+</span><span><a class="LN" name="88">   88   </a>  uint16_t ICC4ReadValue4;
+</span><span><a class="LN" name="89">   89   </a>  uint8_t ICC1CaptureNumber;
+</span><span><a class="LN" name="90">   90   </a>  uint8_t ICC2CaptureNumber;
+</span><span><a class="LN" name="91">   91   </a>  uint8_t ICC3CaptureNumber;
+</span><span><a class="LN" name="92">   92   </a>  uint8_t ICC4CaptureNumber;
+</span><span><a class="LN" name="93">   93   </a>  <span class="DT">void</span> (* ItUpFcn)(<span class="DT">void</span>);
+</span><span><a class="LN" name="94">   94   </a>  <span class="DT">void</span> (* ItTrgFcn)(<span class="DT">void</span>);
+</span><span><a class="LN" name="95">   95   </a>  <span class="DT">void</span> (* ItComFcn)(<span class="DT">void</span>);
+</span><span><a class="LN" name="96">   96   </a>  <span class="DT">void</span> (* ItBrkFcn)(<span class="DT">void</span>);
+</span><span><a class="LN" name="97">   97   </a>  <span class="DT">void</span> (* ItCcFcn)(TIM_HandleTypeDef *htim);
+</span><span><a class="LN" name="98">   98   </a><b>}</b> <a name="type_TIM_DataLinkTypeDef">TIM_DataLinkTypeDef</a>;
+</span><span><a class="LN" name="99">   99   </a>
+</span><span><a class="LN" name="100">  100   </a><span class="KW">typedef</span> <span class="KW">enum</span> <b>{</b>
+</span><span><a class="LN" name="101">  101   </a>  OUTPUT_COMP = 0,
+</span><span><a class="LN" name="102">  102   </a>  OUTPUT_PWM,
+</span><span><a class="LN" name="103">  103   </a>  OUTPUT_TRGO,
+</span><span><a class="LN" name="104">  104   </a>  OUTPUT_FORCED,
+</span><span><a class="LN" name="105">  105   </a>  INPUT_PWM,
+</span><span><a class="LN" name="106">  106   </a>  INPUT_CAPTURE,
+</span><span><a class="LN" name="107">  107   </a>  INPUT_ETR,
+</span><span><a class="LN" name="108">  108   </a>  INPUT_ENCODER,
+</span><span><a class="LN" name="109">  109   </a>  INPUT_HALL_SENSOR,
+</span><span><a class="LN" name="110">  110   </a>  UNKNOWN
+</span><span><a class="LN" name="111">  111   </a><b>}</b> <a name="type_TIM_ChTypeDef">TIM_ChTypeDef</a>;
+</span><span><a class="LN" name="112">  112   </a>
+</span><span><a class="LN" name="113">  113   </a><span class="DT">extern</span> <a href="#type_TIM_DataLinkTypeDef" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_TIM_DataLinkTypeDef');" target="_self"><font color="#1122aa">TIM_DataLinkTypeDef</font></a>* <a href="motor_TIM_c.html#var_G_TIM_Data" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_G_TIM_Data');" target="_self"><font color="#1122aa">G_TIM_Data</font></a>;<span class="CT">/* Pointer to TIMER data information*/</span>
+</span><span><a class="LN" name="114">  114   </a><span class="DT">extern</span> TIM_HandleTypeDef* <a href="motor_TIM_c.html#var_G_TIM_Handler" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_G_TIM_Handler');" target="_self"><font color="#1122aa">G_TIM_Handler</font></a>;<span class="CT">/* Pointer to TIMER handler */</span>
+</span><span><a class="LN" name="115">  115   </a>
+</span><span><a class="LN" name="116">  116   </a><span class="CT">/* TIM1 handler */</span>
+</span><span><a class="LN" name="117">  117   </a><span class="DT">extern</span> TIM_HandleTypeDef htim1;
+</span><span><a class="LN" name="118">  118   </a>
+</span><span><a class="LN" name="119">  119   </a><span class="CT">/* TIM1 data information*/</span>
+</span><span><a class="LN" name="120">  120   </a><span class="DT">extern</span> <a href="#type_TIM_DataLinkTypeDef" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_TIM_DataLinkTypeDef');" target="_self"><font color="#1122aa">TIM_DataLinkTypeDef</font></a> <a href="motor_TIM_c.html#var_TIM1_DataLink" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_TIM1_DataLink');" target="_self"><font color="#1122aa">TIM1_DataLink</font></a>;
+</span><span><a class="LN" name="121">  121   </a>
+</span><span><a class="LN" name="122">  122   </a><span class="CT">/* TIM1 polling timeout value. Number of Solver loop. (can be changed)*/</span>
+</span><span><a class="LN" name="123">  123   </a><span class="DT">extern</span> uint32_t <a href="motor_TIM_c.html#var_G_TIM1_PollTimeOut" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_G_TIM1_PollTimeOut');" target="_self"><font color="#1122aa">G_TIM1_PollTimeOut</font></a>;
+</span><span><a class="LN" name="124">  124   </a>
+</span><span><a class="LN" name="125">  125   </a><font color="#992211">#</font><span class="PP">endif</span>                                 <span class="CT">/* RTW_HEADER_motor_TIM_h_ */</span>
+</span><span><a class="LN" name="126">  126   </a>
+</span><span><a class="LN" name="127">  127   </a><span class="CT">/* File trailer for Real-Time Workshop generated code.</span>
+</span><span><a class="LN" name="128">  128   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="129">  129   </a><span class="CT"> * [EOF] motor_TIM.h</span>
+</span><span><a class="LN" name="130">  130   </a><span class="CT"> */</span>
+</span><span><a class="LN" name="131">  131   </a>
+</span></pre>
+</td></tr></table>
+</p>
+</body>
+</html>
